@@ -1,97 +1,111 @@
-import { Clock, CheckCircle2, MessageSquare, Calendar } from "lucide-react";
+import { useState } from "react";
+import { Clock, CheckCircle2, MessageSquare, Calendar, ChevronDown } from "lucide-react";
 import DashboardSidebar from "@/components/DashboardSidebar";
 import StatCard from "@/components/StatCard";
 import PerformanceTable from "@/components/PerformanceTable";
 import EmployeeChart from "@/components/EmployeeChart";
 import CategoryChart from "@/components/CategoryChart";
 
+const quickRanges = ["اليوم", "الأمس", "7 أيام", "30 يوم"];
+
 const Index = () => {
+  const [activeRange, setActiveRange] = useState(0);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-50">
       <DashboardSidebar />
 
-      {/* Main content */}
-      <main className="mr-20 p-6 lg:p-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
-          {/* Date filters */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <div className="flex items-center gap-1 bg-card border border-border rounded-lg px-3 py-2 text-sm">
-              <Calendar className="w-4 h-4 text-muted-foreground" />
-              <span>اليوم: 2026-04-15</span>
+      <div className="mr-[240px] flex flex-col min-h-screen">
+
+        {/* ── Top bar ── */}
+        <header className="sticky top-0 z-30 bg-white border-b border-slate-100 px-8 py-4 flex items-center justify-between gap-6">
+
+          {/* Title */}
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
+              <MessageSquare className="w-4 h-4 text-primary" />
             </div>
-            <div className="flex items-center gap-1 bg-card border border-border rounded-lg px-3 py-2 text-sm">
-              <Calendar className="w-4 h-4 text-muted-foreground" />
-              <span>04/15/2026</span>
+            <div>
+              <h1 className="text-lg font-bold text-foreground leading-tight">لوحة التحليلات</h1>
+              <p className="text-xs text-muted-foreground">نظرة شاملة على أداء الفريق والمحادثات</p>
             </div>
-            <span className="text-sm text-muted-foreground">إلى</span>
-            <div className="flex items-center gap-1 bg-card border border-border rounded-lg px-3 py-2 text-sm">
-              <Calendar className="w-4 h-4 text-muted-foreground" />
-              <span>04/15/2026</span>
-            </div>
-            <span className="text-sm text-muted-foreground">من</span>
-            <div className="flex items-center gap-1">
-              {["30 يوم", "7 أيام", "الأمس", "اليوم"].map((label, i) => (
+          </div>
+
+          {/* Date controls */}
+          <div className="flex items-center gap-3">
+            {/* Quick range pills */}
+            <div className="flex items-center bg-slate-100 rounded-xl p-1 gap-0.5">
+              {quickRanges.map((label, i) => (
                 <button
                   key={label}
-                  className={`px-3 py-1.5 text-sm rounded-lg transition-all ${
-                    i === 3
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : "text-muted-foreground hover:bg-secondary"
+                  onClick={() => setActiveRange(i)}
+                  className={`px-3 py-1.5 text-xs rounded-lg font-medium transition-all ${
+                    activeRange === i
+                      ? "bg-white text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {label}
                 </button>
               ))}
             </div>
+
+            {/* Date range picker */}
+            <div className="flex items-center gap-2 bg-slate-100 rounded-xl px-3 py-2">
+              <button className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors">
+                <Calendar className="w-3.5 h-3.5" />
+                <span>15/04/2026</span>
+                <ChevronDown className="w-3 h-3" />
+              </button>
+              <span className="text-muted-foreground/50 text-xs">—</span>
+              <button className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors">
+                <Calendar className="w-3.5 h-3.5" />
+                <span>15/04/2026</span>
+                <ChevronDown className="w-3 h-3" />
+              </button>
+            </div>
+          </div>
+        </header>
+
+        {/* ── Page body ── */}
+        <main className="flex-1 p-8 flex flex-col gap-8">
+
+          {/* Stat cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <StatCard
+              title="بالانتظار الرد"
+              value="٣٠٧"
+              subtitle="تذاكر مفتوحة حالياً"
+              icon={Clock}
+              colorClass="bg-gradient-to-bl from-stat-orange to-stat-orange-dark"
+            />
+            <StatCard
+              title="تم حلها"
+              value="٢٥٩"
+              subtitle="محادثات مغلقة بنجاح"
+              icon={CheckCircle2}
+              colorClass="bg-gradient-to-bl from-stat-teal to-stat-teal-dark"
+            />
+            <StatCard
+              title="محادثات جديدة"
+              value="٦٠"
+              subtitle="خلال الفترة المحددة"
+              icon={MessageSquare}
+              colorClass="bg-gradient-to-bl from-stat-blue to-stat-blue-dark"
+            />
           </div>
 
-          {/* Title */}
-          <div className="text-right">
-            <h1 className="text-2xl font-bold text-foreground flex items-center gap-3 justify-end">
-              لوحة التحليلات
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <MessageSquare className="w-5 h-5 text-primary" />
-              </div>
-            </h1>
-            <p className="text-sm text-muted-foreground mt-1">نظرة شاملة على أداء الفريق والمحادثات</p>
+          {/* Charts */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <CategoryChart />
+            <EmployeeChart />
           </div>
-        </div>
 
-        {/* Stat Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <StatCard
-            title="بالانتظار الرد"
-            value="٣٠٧"
-            subtitle="تذاكر مفتوحة حالياً"
-            icon={Clock}
-            colorClass="bg-gradient-to-bl from-stat-orange to-stat-orange-dark"
-          />
-          <StatCard
-            title="تم حلها"
-            value="٢٥٩"
-            subtitle="محادثات مغلقة بنجاح"
-            icon={CheckCircle2}
-            colorClass="bg-gradient-to-bl from-stat-teal to-stat-teal-dark"
-          />
-          <StatCard
-            title="محادثات جديدة"
-            value="٦٠"
-            subtitle="خلال الفترة المحددة"
-            icon={MessageSquare}
-            colorClass="bg-gradient-to-bl from-stat-blue to-stat-blue-dark"
-          />
-        </div>
+          {/* Performance table */}
+          <PerformanceTable />
 
-        {/* Charts row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <CategoryChart />
-          <EmployeeChart />
-        </div>
-
-        {/* Performance Table */}
-        <PerformanceTable />
-      </main>
+        </main>
+      </div>
     </div>
   );
 };

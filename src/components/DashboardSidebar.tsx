@@ -1,68 +1,80 @@
 import { BarChart3, MessageSquare, Users, UserCircle, Send, Settings } from "lucide-react";
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const navItems = [
-  { icon: BarChart3, label: "التقارير", id: "reports" },
-  { icon: MessageSquare, label: "الرسائل", id: "messages" },
-  { icon: Users, label: "العملاء", id: "clients" },
-  { icon: UserCircle, label: "الفريق", id: "team" },
-  { icon: Send, label: "الحملات", id: "campaigns" },
-  { icon: Settings, label: "الإعدادات", id: "settings" },
+  { icon: BarChart3, label: "التقارير", path: "/" },
+  { icon: MessageSquare, label: "الرسائل", path: "/messages" },
+  { icon: Users, label: "العملاء", path: "/customers" },
+  { icon: UserCircle, label: "الفريق", path: "/team" },
+  { icon: Send, label: "الحملات", path: "/campaigns" },
+  { icon: Settings, label: "الإعدادات", path: "/settings" },
 ];
 
-interface DashboardSidebarProps {
-  activeItem?: string;
-  onItemClick?: (id: string) => void;
-}
-
-const DashboardSidebar = ({ activeItem = "reports", onItemClick }: DashboardSidebarProps) => {
+const DashboardSidebar = () => {
   return (
-    <aside className="fixed top-0 right-0 h-screen w-20 bg-[hsl(var(--sidebar-bg))] flex flex-col items-center py-6 z-50">
+    <aside className="fixed top-0 right-0 h-screen w-[240px] bg-slate-800 flex flex-col py-5 z-50 border-l border-[hsl(var(--sidebar-border))]">
+
       {/* Logo */}
-      <div className="mb-8">
-        <div className="text-2xl font-bold text-primary-foreground font-cairo tracking-tight">
-          لبيّ
-        </div>
+      <div className="flex justify-center mb-6 px-4">
+        <img src="/logo-white.png" alt="لبيّك" className="h-14 w-auto object-contain" />
       </div>
 
-      {/* Label */}
-      <div className="text-[hsl(var(--sidebar-fg))] text-xs mb-4 opacity-60">القائمة</div>
+      {/* Menu label */}
+      <div className="text-[11px] text-[hsl(var(--sidebar-fg))] opacity-50 mb-1 px-5 text-right">القائمة</div>
 
       {/* Nav items */}
-      <nav className="flex flex-col gap-1 flex-1 w-full px-2">
-        {navItems.map((item) => {
-          const isActive = activeItem === item.id;
-          return (
-            <button
-              key={item.id}
-              onClick={() => onItemClick?.(item.id)}
-              className={`flex flex-col items-center gap-1 py-3 rounded-lg transition-all text-xs
-                ${isActive
-                  ? "bg-[hsl(var(--sidebar-active))] text-primary-foreground shadow-lg"
-                  : "text-[hsl(var(--sidebar-fg))] hover:bg-[hsl(var(--sidebar-accent))] hover:text-primary-foreground"
-                }`}
-            >
-              <item.icon className="w-5 h-5" />
-              <span>{item.label}</span>
-            </button>
-          );
-        })}
+      <nav className="flex flex-col gap-0.5 flex-1 px-3">
+        {navItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            end={item.path === "/"}
+            className={({ isActive }) =>
+              `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all text-sm cursor-pointer select-none
+              ${isActive
+                ? "bg-blue-600 text-primary-foreground shadow-md font-semibold"
+                : "text-[hsl(var(--sidebar-fg))] hover:bg-[hsl(var(--sidebar-accent))] hover:text-primary-foreground"
+              }`
+            }
+          >
+            {/* In RTL flex, first child = rightmost */}
+            <item.icon className="w-[18px] h-[18px] flex-shrink-0" />
+            <span className="font-cairo flex-1 text-right">{item.label}</span>
+          </NavLink>
+        ))}
       </nav>
 
-      {/* Bottom info */}
-      <div className="mt-auto flex flex-col items-center gap-2 text-[hsl(var(--sidebar-fg))]">
-        <div className="flex items-center gap-1 text-[10px] opacity-60">
-          <span className="w-2 h-2 rounded-full bg-muted-foreground" />
-          غير متصل
+      {/* Bottom section */}
+      <div className="flex flex-col gap-3 px-4 pt-4 border-t border-[hsl(var(--sidebar-border))]">
+        {/* Online toggle */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--sidebar-fg))] opacity-40" />
+            <span className="text-xs text-[hsl(var(--sidebar-fg))] opacity-60">غير متصل</span>
+          </div>
+          <div className="w-9 h-5 rounded-full bg-[hsl(var(--sidebar-accent))] relative cursor-pointer flex-shrink-0">
+            <div className="absolute right-0.5 top-0.5 w-4 h-4 rounded-full bg-[hsl(var(--sidebar-fg))] opacity-60 transition-all" />
+          </div>
         </div>
-        <div className="text-[10px] opacity-60">تسليم الشفت</div>
-        <div className="w-10 h-10 rounded-full bg-[hsl(var(--sidebar-active))] flex items-center justify-center text-primary-foreground font-bold text-sm">
-          من
+
+        {/* Shift handover */}
+        <div className="flex items-center justify-between cursor-pointer hover:opacity-80 transition-opacity">
+          <span className="text-xs text-[hsl(var(--sidebar-fg))] opacity-60">تسليم الشفت</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[hsl(var(--sidebar-fg))] opacity-60 flex-shrink-0">
+            <path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+            <path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+          </svg>
         </div>
-        <div className="text-[9px] text-center leading-tight opacity-80">
-          منصة الدولفن التعليمية
-          <br />
-          <span className="opacity-60">مدير النظام</span>
+
+        {/* User info */}
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-md bg-purple-600 flex items-center justify-center text-primary-foreground font-bold text-sm shadow-md flex-shrink-0">
+            من
+          </div>
+          <div className="text-right flex-1 min-w-0">
+            <div className="text-[11px] text-primary-foreground font-bold leading-tight truncate">منصة الدولفين التعليمية</div>
+            <div className="text-[10px] text-[hsl(var(--sidebar-fg))] opacity-60 leading-tight">مدير النظام</div>
+          </div>
         </div>
       </div>
     </aside>

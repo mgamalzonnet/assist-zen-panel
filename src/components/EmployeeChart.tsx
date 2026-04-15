@@ -16,15 +16,15 @@ const EmployeeChart = () => {
   return (
     <div className="bg-card rounded-2xl shadow-sm border border-border p-6">
       <div className="flex items-center justify-between mb-6">
-        <div />
         <div className="text-right">
           <h2 className="text-lg font-bold text-foreground">أداء الموظفين</h2>
           <p className="text-sm text-muted-foreground">مقارنة بين إجمالي المحادثات والمحلولة</p>
         </div>
+        {/* <div /> */}
       </div>
 
       {/* Legend */}
-      <div className="flex items-center gap-4 justify-end mb-6">
+      <div className="flex items-center gap-4 justify-start mb-6">
         <div className="flex items-center gap-1.5">
           <span className="w-3 h-3 rounded bg-stat-teal" />
           <span className="text-sm text-muted-foreground">المحلولة</span>
