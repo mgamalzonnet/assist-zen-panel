@@ -10,6 +10,7 @@ import Customers from "./pages/Customers.tsx";
 import Campaigns from "./pages/Campaigns.tsx";
 import Settings from "./pages/Settings.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Login from "./pages/Login.tsx";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/team" element={<Team />} />
