@@ -19,7 +19,7 @@ const ConversationList = ({
   onTabChange,
   tabs,
 }: ConversationListProps) => (
-  <aside className="fixed top-0 right-[240px] h-screen w-[310px] bg-white border-l border-border flex flex-col z-40 shadow-sm">
+  <aside className="fixed top-0  h-screen w-[310px] bg-white border-l border-border flex flex-col z-40 shadow-sm">
     {/* Header */}
     <div className="px-4 pt-4 pb-3 border-b border-border">
       <div className="flex items-center justify-between mb-3">

@@ -12,7 +12,7 @@ const navItems = [
 
 const DashboardSidebar = () => {
   return (
-    <aside className="fixed top-0 right-0 h-screen w-[240px] bg-slate-800 flex flex-col py-5 z-50 border-r border-[hsl(var(--sidebar-border))]">
+    <aside className="fixed top-0 right-0 h-screen w-[240px] bg-sidebar text-sidebar-foreground flex flex-col py-5 z-50 border-r border-sidebar-border shadow-sm animate-fade-in">
 
       {/* Logo */}
       <div className="flex justify-center mb-6 px-4">
@@ -30,10 +30,10 @@ const DashboardSidebar = () => {
             to={item.path}
             end={item.path === "/"}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all text-sm cursor-pointer select-none
+              `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-300 ease-out text-sm cursor-pointer select-none
               ${isActive
                 ? "bg-primary text-primary-foreground shadow-md font-semibold"
-                : "text-[hsl(var(--sidebar-fg))] hover:bg-[hsl(var(--sidebar-accent))] hover:text-primary-foreground"
+                : "text-[hsl(var(--sidebar-fg))] hover:bg-[hsl(var(--sidebar-accent))] hover:text-primary-foreground hover:shadow-sm"
               }`
             }
           >
@@ -44,7 +44,7 @@ const DashboardSidebar = () => {
       </nav>
 
       {/* Bottom section */}
-      <div className="flex flex-col gap-3 px-4 pt-4 border-t border-[hsl(var(--sidebar-border))]">
+      <div className="flex flex-col gap-3 px-4 pt-4 border-t border-sidebar-border">
         {/* Online toggle */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
@@ -52,7 +52,7 @@ const DashboardSidebar = () => {
             <span className="text-xs text-[hsl(var(--sidebar-fg))] opacity-60">غير متصل</span>
           </div>
           <div className="w-9 h-5 rounded-full bg-[hsl(var(--sidebar-accent))] relative cursor-pointer flex-shrink-0">
-            <div className="absolute right-0.5 top-0.5 w-4 h-4 rounded-full bg-[hsl(var(--sidebar-fg))] opacity-60 transition-all" />
+            <div className="absolute right-0.5 top-0.5 w-4 h-4 rounded-full bg-[hsl(var(--sidebar-fg))] opacity-60 transition-all duration-300 ease-out" />
           </div>
         </div>
 
@@ -67,7 +67,7 @@ const DashboardSidebar = () => {
 
         {/* User info */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-md bg-purple-600 flex items-center justify-center text-primary-foreground font-bold text-sm shadow-md flex-shrink-0">
+          <div className="w-9 h-9 rounded-md bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm shadow-sm flex-shrink-0">
             من
           </div>
           <div className="text-right flex-1 min-w-0">

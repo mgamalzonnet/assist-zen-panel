@@ -38,13 +38,17 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-      <div className="w-full max-w-md">
+    <div className="relative min-h-screen flex items-center justify-center bg-background p-4 overflow-hidden">
+      <div className="relative w-full max-w-md">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(var(--primary)/0.12),transparent_55%)]"
+        />
         
     
 
         {/* Login Card */}
-        <Card className="bg-white shadow-sm border border-slate-100 rounded-xl">
+        <Card className="rounded-xl border-border/80 transition-shadow duration-300 hover:shadow-md">
           <CardHeader className="space-y-1 pb-6 px-6 pt-6 text-center">
             <CardTitle className="text-lg font-bold">تسجيل الدخول</CardTitle>
             <CardDescription className="text-xs text-muted-foreground">
@@ -65,7 +69,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   dir="ltr"
-                  className="bg-slate-50 border-slate-200 focus-visible:ring-primary h-11 text-right"
+                  className="bg-background border-border/70 focus-visible:ring-primary h-11 text-right"
                 />
               </div>
               <div className="space-y-2 text-right">
@@ -75,7 +79,7 @@ const Login = () => {
                   </Label>
                   <a
                     href="#"
-                    className="text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+                    className="text-xs font-medium text-primary hover:text-primary/80 transition-colors duration-300"
                   >
                     نسيت كلمة المرور؟
                   </a>
@@ -88,12 +92,12 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   dir="ltr"
-                  className="bg-slate-50 border-slate-200 focus-visible:ring-primary h-11 text-right"
+                  className="bg-background border-border/70 focus-visible:ring-primary h-11 text-right"
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full h-11 text-sm font-medium shadow-sm transition-all active:scale-[0.98] mt-2"
+                className="w-full h-11 text-sm font-medium shadow-sm transition-all duration-300 ease-out hover:shadow-md active:scale-[0.98] mt-2"
                 disabled={isLoading}
               >
                 {isLoading ? (

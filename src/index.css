@@ -12,40 +12,42 @@
   }
 
   :root {
-    --background: 210 20% 96%;
-    --foreground: 220 30% 15%;
+    /* Brand-neutral corporate palette */
+    --background: 210 18% 97%;
+    --foreground: 222 25% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 30% 15%;
+    --card-foreground: 222 25% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 15%;
+    --popover-foreground: 222 25% 12%;
 
-    --primary: 35 65% 50%;
+    /* #D18C2D */
+    --primary: 34.8 64.6% 49.8%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 30% 95%;
-    --secondary-foreground: 220 30% 15%;
+    --secondary: 210 22% 93%;
+    --secondary-foreground: 222 25% 12%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 210 18% 96%;
+    --muted-foreground: 215 14% 45%;
 
-    --accent: 210 30% 95%;
-    --accent-foreground: 220 30% 15%;
+    --accent: 210 18% 96%;
+    --accent-foreground: 222 25% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 25% 90%;
-    --input: 214 25% 90%;
-    --ring: 35 65% 50%;
+    --border: 215 18% 86%;
+    --input: 215 18% 86%;
+    --ring: 34.8 64.6% 49.8%;
 
     --radius: 0.75rem;
 
     /* Dashboard specific */
-    --sidebar-bg: 216 50% 16%;
-    --sidebar-fg: 210 20% 80%;
-    --sidebar-active: 35 65% 50%;
+    --sidebar-bg: 222 25% 14%;
+    --sidebar-fg: 210 20% 82%;
+    --sidebar-active: 34.8 64.6% 49.8%;
 
     --stat-orange: 20 90% 55%;
     --stat-orange-dark: 15 85% 45%;
@@ -58,14 +60,15 @@
     --warning: 35 90% 55%;
     --info: 213 70% 50%;
 
-    --sidebar-background: 216 50% 16%;
-    --sidebar-foreground: 210 20% 80%;
-    --sidebar-primary: 35 65% 50%;
+    --sidebar-background: 222 25% 14%;
+    --sidebar-foreground: 210 20% 82%;
+    --sidebar-primary: 34.8 64.6% 49.8%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 216 45% 22%;
+    /* Warm brand tint for hover states */
+    --sidebar-accent: 34.8 64.6% 22%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 216 40% 25%;
-    --sidebar-ring: 35 65% 50%;
+    --sidebar-border: 220 22% 24%;
+    --sidebar-ring: 34.8 64.6% 49.8%;
   }
 }
 
@@ -115,4 +118,21 @@
 
 *::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+/* Define scrollbar variables using the actual brand primary */
+:root {
+  --scrollbar-thumb: hsl(var(--primary) / 0.35);
+  --scrollbar-thumb-hover: hsl(var(--primary) / 0.65);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *::before,
+  *::after,
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
