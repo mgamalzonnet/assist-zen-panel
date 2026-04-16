@@ -1,6 +1,6 @@
 /* Simple SVG QR placeholder */
 const QrPlaceholder = () => (
-  <div className="w-40 h-40 border-2 border-border rounded-xl flex items-center justify-center bg-white mx-auto">
+  <div className="w-40 h-40 border-2 border-border rounded-xl flex items-center justify-center bg-card mx-auto">
     <svg viewBox="0 0 100 100" width="130" height="130" xmlns="http://www.w3.org/2000/svg">
       {/* Top-left finder */}
       <rect x="5"  y="5"  width="30" height="30" rx="3" fill="none" stroke="#111" strokeWidth="4"/>

@@ -21,10 +21,10 @@ const ChatArea = ({ selected, messages, input, onInputChange, onSend }: ChatArea
   if (!selected) {
     return (
       <div
-        className="flex-1 flex flex-col items-center justify-center gap-4 bg-[#efeae2]"
+        className="flex-1 flex flex-col items-center justify-center gap-4 bg-secondary/50"
         style={{ backgroundImage: "radial-gradient(circle, #d4d4d430 1px, transparent 1px)", backgroundSize: "20px 20px" }}
       >
-        <div className="w-24 h-24 rounded-3xl border-2 border-dashed border-border/60 flex items-center justify-center bg-white/60">
+        <div className="w-24 h-24 rounded-3xl border-2 border-dashed border-border/60 flex items-center justify-center bg-card/60">
           <div className="w-10 h-10 rounded-xl border-2 border-dashed border-muted-foreground/30" />
         </div>
         <div className="text-center">
@@ -38,7 +38,7 @@ const ChatArea = ({ selected, messages, input, onInputChange, onSend }: ChatArea
   return (
     <>
       {/* Chat header */}
-      <div className="bg-white border-b border-border px-5 py-3 flex items-center justify-between flex-shrink-0 shadow-sm">
+      <div className="bg-card border-b border-border px-5 py-3 flex items-center justify-between flex-shrink-0 shadow-sm">
         {/* Contact info */}
         <div className="flex items-center gap-3">
           <div className={`w-10 h-10 rounded-full ${selected.avatarColor} flex items-center justify-center text-white font-bold text-sm`}>
@@ -69,11 +69,11 @@ const ChatArea = ({ selected, messages, input, onInputChange, onSend }: ChatArea
 
       {/* Messages */}
       <div
-        className="flex-1 overflow-y-auto px-6 py-5 bg-[#efeae2] flex flex-col gap-2"
+        className="flex-1 overflow-y-auto px-6 py-5 bg-secondary/40 flex flex-col gap-2"
         style={{ backgroundImage: "radial-gradient(circle, #d4d4d430 1px, transparent 1px)", backgroundSize: "20px 20px" }}
       >
         <div className="flex items-center justify-center my-2">
-          <span className="bg-white/80 text-muted-foreground text-[11px] px-3 py-1 rounded-full shadow-sm">اليوم</span>
+          <span className="bg-card/80 text-muted-foreground text-[11px] px-3 py-1 rounded-full shadow-sm">اليوم</span>
         </div>
         {messages.map((msg) => (
           <MessageBubble key={msg.id} message={msg} />
@@ -82,15 +82,15 @@ const ChatArea = ({ selected, messages, input, onInputChange, onSend }: ChatArea
       </div>
 
       {/* Input bar */}
-      <div className="bg-white border-t border-border px-4 py-3 flex items-center gap-3 flex-shrink-0">
+      <div className="bg-card border-t border-border px-4 py-3 flex items-center gap-3 flex-shrink-0">
         <button
-          className="w-9 h-9 rounded-full bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors flex-shrink-0 shadow-sm"
+          className="w-9 h-9 rounded-full bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors duration-300 ease-out flex-shrink-0 shadow-sm"
           onClick={onSend}
         >
           <Send className="w-4 h-4 text-white" />
         </button>
 
-        <div className="flex-1 bg-slate-50 border border-border rounded-xl px-4 py-2.5 flex items-center gap-2">
+        <div className="flex-1 bg-secondary/60 border border-border rounded-xl px-4 py-2.5 flex items-center gap-2">
           <input
             type="text"
             value={input}
@@ -99,14 +99,14 @@ const ChatArea = ({ selected, messages, input, onInputChange, onSend }: ChatArea
             placeholder="اكتب رسالة..."
             className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none text-right"
           />
-          <Mic className="w-4 h-4 text-muted-foreground cursor-pointer hover:text-foreground transition-colors" />
+          <Mic className="w-4 h-4 text-muted-foreground cursor-pointer hover:text-foreground transition-colors duration-300 ease-out" />
         </div>
 
         <div className="flex items-center gap-1.5">
-          <button className="w-9 h-9 rounded-full hover:bg-secondary flex items-center justify-center transition-colors">
+          <button className="w-9 h-9 rounded-full hover:bg-secondary flex items-center justify-center transition-colors duration-300 ease-out">
             <Smile className="w-5 h-5 text-muted-foreground" />
           </button>
-          <button className="w-9 h-9 rounded-full hover:bg-secondary flex items-center justify-center transition-colors">
+          <button className="w-9 h-9 rounded-full hover:bg-secondary flex items-center justify-center transition-colors duration-300 ease-out">
             <Paperclip className="w-5 h-5 text-muted-foreground" />
           </button>
         </div>

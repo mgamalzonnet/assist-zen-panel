@@ -177,7 +177,7 @@ const PerformanceTable = () => {
             إحصائيات تفصيلية لكل موظف
           </p>
         </div>
-        <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-3 py-1.5">
+        <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 ease-out border border-border rounded-lg px-3 py-1.5 hover:bg-secondary/60">
           تصدير
           <Download className="w-4 h-4" />
         </button>

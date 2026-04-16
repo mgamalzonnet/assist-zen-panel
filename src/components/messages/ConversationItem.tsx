@@ -11,8 +11,8 @@ interface ConversationItemProps {
 const ConversationItem = ({ conversation: conv, isSelected, onClick }: ConversationItemProps) => (
   <button
     onClick={onClick}
-    className={`w-full flex items-start gap-3 px-4 py-3 border-b border-border/40 transition-colors text-right
-      ${isSelected ? "bg-primary/[0.08] border-l-2 border-l-primary" : "hover:bg-slate-50"}`}
+    className={`w-full flex items-start gap-3 px-4 py-3 border-b border-border/40 transition-colors duration-300 ease-out text-right
+      ${isSelected ? "bg-primary/[0.08] border-l-2 border-l-primary" : "hover:bg-secondary/70"}`}
   >
     {/* Avatar */}
     <div className="flex-shrink-0 relative mt-0.5">
@@ -58,7 +58,7 @@ const ConversationItem = ({ conversation: conv, isSelected, onClick }: Conversat
             {conv.assignedTo}
           </span>
         )}
-        <span className="text-[9px] px-1.5 py-0.5 bg-slate-100 text-muted-foreground rounded-full">
+        <span className="text-[9px] px-1.5 py-0.5 bg-secondary/70 border border-border/50 text-muted-foreground rounded-full">
           {conv.channel}
         </span>
       </div>

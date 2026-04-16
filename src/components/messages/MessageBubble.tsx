@@ -13,9 +13,10 @@ const MessageBubble = ({ message }: MessageBubbleProps) => {
     <div className={`flex ${isAgent ? "justify-start" : "justify-end"}`}>
       <div
         className={`max-w-[68%] px-3.5 py-2 rounded-2xl shadow-sm relative
+          animate-fade-in transition-shadow duration-300 ease-out hover:shadow-md
           ${isAgent
-            ? "bg-[#d9fdd3] rounded-tl-sm text-foreground"
-            : "bg-white rounded-tr-sm text-foreground"
+            ? "bg-primary/12 border border-primary/20 rounded-tl-sm text-foreground"
+            : "bg-card border border-border rounded-tr-sm text-foreground"
           }`}
       >
         {message.type === "image" ? (

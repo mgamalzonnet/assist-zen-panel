@@ -136,3 +136,15 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Brand scrollbar variables */
+:root {
+  --scrollbar-thumb: hsl(var(--primary) / 0.35);
+  --scrollbar-thumb-hover: hsl(var(--primary) / 0.65);
+}
+
+/* Brand scrollbar variables */
+:root {
+  --scrollbar-thumb: hsl(var(--primary) / 0.35);
+  --scrollbar-thumb-hover: hsl(var(--primary) / 0.65);
+}

@@ -19,21 +19,21 @@ const ConversationList = ({
   onTabChange,
   tabs,
 }: ConversationListProps) => (
-  <aside className="fixed top-0  h-screen w-[310px] bg-white border-l border-border flex flex-col z-40 shadow-sm">
+  <aside className="fixed top-0 h-screen w-[310px] bg-card border-l border-border flex flex-col z-40 shadow-sm animate-fade-in">
     {/* Header */}
     <div className="px-4 pt-4 pb-3 border-b border-border">
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-base font-bold text-foreground">المحادثات</h2>
         <div className="flex items-center gap-2">
-          <button className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors">
+          <button className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors duration-300 ease-out">
             <SlidersHorizontal className="w-4 h-4 text-muted-foreground" />
           </button>
-          <button className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors">
+          <button className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors duration-300 ease-out">
             <Plus className="w-4 h-4 text-primary-foreground" />
           </button>
         </div>
       </div>
-      <div className="flex items-center gap-2 bg-slate-50 border border-border rounded-xl px-3 py-2">
+      <div className="flex items-center gap-2 bg-secondary/60 border border-border rounded-xl px-3 py-2">
         <Search className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0" />
         <input
           type="text"
@@ -51,7 +51,7 @@ const ConversationList = ({
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`relative flex items-center justify-center px-3 py-1.5 rounded-full text-xs font-medium transition-all
+            className={`relative flex items-center justify-center px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ease-out
               ${isActive ? "bg-primary text-primary-foreground shadow-sm" : "bg-secondary text-muted-foreground hover:text-foreground"}`}
           >
             {tab.label}

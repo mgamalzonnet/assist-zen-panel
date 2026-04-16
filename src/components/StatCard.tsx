@@ -10,7 +10,9 @@ interface StatCardProps {
 
 const StatCard = ({ title, value, subtitle, icon: Icon, colorClass }: StatCardProps) => {
   return (
-    <div className={`${colorClass} rounded-2xl p-6 text-primary-foreground relative overflow-hidden min-h-[140px] flex flex-col justify-center shadow-lg`}>
+    <div
+      className={`${colorClass} rounded-2xl p-6 text-primary-foreground relative overflow-hidden min-h-[140px] flex flex-col justify-center shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl`}
+    >
       <div className="absolute top-4 left-4 opacity-30">
         <Icon className="w-8 h-8" />
       </div>
