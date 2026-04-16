@@ -12,7 +12,7 @@ const navItems = [
 
 const DashboardSidebar = () => {
   return (
-    <aside className="fixed top-0 right-0 h-screen w-[240px] bg-slate-800 flex flex-col py-5 z-50 border-l border-[hsl(var(--sidebar-border))]">
+    <aside className="fixed top-0 right-0 h-screen w-[240px] bg-slate-800 flex flex-col py-5 z-50 border-r border-[hsl(var(--sidebar-border))]">
 
       {/* Logo */}
       <div className="flex justify-center mb-6 px-4">
@@ -32,12 +32,11 @@ const DashboardSidebar = () => {
             className={({ isActive }) =>
               `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all text-sm cursor-pointer select-none
               ${isActive
-                ? "bg-blue-600 text-primary-foreground shadow-md font-semibold"
+                ? "bg-primary text-primary-foreground shadow-md font-semibold"
                 : "text-[hsl(var(--sidebar-fg))] hover:bg-[hsl(var(--sidebar-accent))] hover:text-primary-foreground"
               }`
             }
           >
-            {/* In RTL flex, first child = rightmost */}
             <item.icon className="w-[18px] h-[18px] flex-shrink-0" />
             <span className="font-cairo flex-1 text-right">{item.label}</span>
           </NavLink>

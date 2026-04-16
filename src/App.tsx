@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import DashboardLayout from "@/layouts/DashboardLayout";
 import Index from "./pages/Index.tsx";
 import Team from "./pages/Team.tsx";
 import Messages from "./pages/Messages.tsx";
@@ -21,14 +22,20 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          {/* Public routes */}
           <Route path="/login" element={<Login />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/customers" element={<Customers />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/campaigns" element={<Campaigns />} />
-          <Route path="/settings" element={<Settings />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* Dashboard routes — all share DashboardLayout */}
+          <Route element={<DashboardLayout />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/messages" element={<Messages />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/campaigns" element={<Campaigns />} />
+            <Route path="/settings" element={<Settings />} />
+          </Route>
+
+          {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
