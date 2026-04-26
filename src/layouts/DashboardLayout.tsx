@@ -11,7 +11,7 @@ const DashboardLayout = () => {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.12),transparent_55%)]"
       />
       <DashboardSidebar />
-      <main className="relative mr-[240px] flex flex-col min-h-screen">
+      <main className="relative mr-28 flex flex-col min-h-screen">
         <div key={location.pathname} className="animate-slide-in-up">
           <Outlet />
         </div>
