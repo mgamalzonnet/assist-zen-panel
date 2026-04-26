@@ -25,10 +25,10 @@ const ConversationList = ({
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-base font-bold text-foreground">المحادثات</h2>
         <div className="flex items-center gap-2">
-          <button className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors duration-300 ease-out">
+          <button className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors duration-300 ease-out">
             <SlidersHorizontal className="w-4 h-4 text-muted-foreground" />
           </button>
-          <button className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors duration-300 ease-out">
+          <button className="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors duration-300 ease-out">
             <Plus className="w-4 h-4 text-primary-foreground" />
           </button>
         </div>
@@ -44,7 +44,7 @@ const ConversationList = ({
     </div>
 
     {/* Tabs */}
-    <div className="flex items-center gap-1.5 px-3 py-2.5 border-b border-border flex-wrap">
+    <div className="flex items- justify-center gap-1.5 px-3 py-2.5  flex-wrap">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
         return (

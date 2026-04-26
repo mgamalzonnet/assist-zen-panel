@@ -8,7 +8,7 @@ const DashboardLayout = () => {
     <div className="relative min-h-screen bg-background overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.12),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[#F0F0F0]"
       />
       <DashboardSidebar />
       <main className="relative mr-[240px] flex flex-col min-h-screen">
