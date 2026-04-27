@@ -13,10 +13,10 @@ const Index = () => {
   return (
     <>
       {/* ── Top bar ── */}
-      <header className="sticky top-0 z-30 bg-card/80 backdrop-blur border-b border-border px-8 py-4 flex items-center justify-between gap-6">
+      <header className="sticky top-0 z-30 bg-card/80 backdrop-blur border-b border-border px-4 lg:px-8 py-4 pr-16 lg:pr-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         {/* Title */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
+          <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
             <MessageSquare className="w-4 h-4 text-primary" />
           </div>
           <div>
@@ -26,14 +26,14 @@ const Index = () => {
         </div>
 
         {/* Date controls */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 flex-wrap justify-end w-full sm:w-auto">
           {/* Quick range pills */}
           <div className="flex items-center bg-secondary/60 border border-border rounded-xl p-1 gap-0.5">
             {quickRanges.map((label, i) => (
               <button
                 key={label}
                 onClick={() => setActiveRange(i)}
-                className={`px-3 py-1.5 text-xs rounded-lg font-medium transition-all duration-300 ease-out ${
+                className={`px-2.5 py-1.5 text-xs rounded-lg font-medium transition-all duration-300 ease-out ${
                   activeRange === i
                     ? "bg-background text-foreground shadow-sm border border-border"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary/80"
@@ -44,8 +44,8 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Date range picker */}
-          <div className="flex items-center gap-2 bg-secondary/60 border border-border rounded-xl px-3 py-2">
+          {/* Date range picker — hidden on small screens */}
+          <div className="hidden md:flex items-center gap-2 bg-secondary/60 border border-border rounded-xl px-3 py-2">
             <button className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors duration-300 ease-out">
               <Calendar className="w-3.5 h-3.5" />
               <span>15/04/2026</span>
@@ -62,9 +62,9 @@ const Index = () => {
       </header>
 
       {/* ── Page body ── */}
-      <div className="flex-1 p-8 flex flex-col gap-8">
+      <div className="flex-1 p-4 lg:p-8 flex flex-col gap-6 lg:gap-8">
         {/* Stat cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
           <StatCard
             title="بالانتظار الرد"
             value="٣٠٧"
@@ -89,7 +89,7 @@ const Index = () => {
         </div>
 
         {/* Charts */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
           <CategoryChart />
           <EmployeeChart />
         </div>
