@@ -14,7 +14,7 @@ const maxVal = Math.max(...data.map((d) => d.total));
 
 const EmployeeChart = () => {
   return (
-    <div className="bg-card rounded-2xl shadow-sm border border-border p-6">
+    <div className="bg-card rounded-2xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div className="text-right">
           <h2 className="text-lg font-bold text-foreground">أداء الموظفين</h2>

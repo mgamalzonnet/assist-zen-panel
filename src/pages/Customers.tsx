@@ -18,9 +18,9 @@ const Customers = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <div className="flex items-center gap-3">
           <h1 className="text-xl font-bold text-foreground flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+            {/* <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
               <Users className="w-4 h-4 text-primary" />
-            </div>
+            </div> */}
             جهات الاتصال
           </h1>
           <span className="bg-secondary text-foreground text-sm font-bold px-3 py-1 rounded-lg">

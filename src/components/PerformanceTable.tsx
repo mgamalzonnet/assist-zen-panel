@@ -166,7 +166,7 @@ const employees: Employee[] = [
 
 const PerformanceTable = () => {
   return (
-    <div className="bg-card rounded-2xl shadow-sm border border-border overflow-hidden">
+    <div className="bg-card rounded-2xl  overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between p-6 pb-4">
         <div className="text-right">
@@ -184,52 +184,52 @@ const PerformanceTable = () => {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto px-5">
         <table className="w-full text-sm">
-          <thead>
-            <tr className="border-t  border-border bg-secondary/50">
-              <th className="py-3 px-4 text-center font-semibold text-muted-foreground">
+          <thead className=" ">
+            <tr className="rounded-xl bg-secondary">
+              <th className="py-3 px-4 text-center rounded-r-xl font-semibold text-foreground">
                 #
               </th>
-              <th className="py-3 px-4 text-right font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-right font-semibold text-foreground">
                 الموظف
               </th>
-              <th className="py-3 px-4 text-center font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-center font-semibold text-foreground">
                 الإجمالي
               </th>
-              <th className="py-3 px-4 text-center font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-center font-semibold text-foreground">
                 محلولة
               </th>
-              <th className="py-3 px-4 text-center font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-center font-semibold text-foreground">
                 الانتظار
               </th>
-              <th className="py-3 px-4 text-right font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-right font-semibold text-foreground">
                 التقييم
               </th>
-              <th className="py-3 px-4 text-right font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-right font-semibold text-foreground">
                 الشفت
               </th>
-              <th className="py-3 px-4 text-right font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-right font-semibold text-foreground">
                 وقت التحقيق
               </th>
-              <th className="py-3 px-4 text-right font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-right font-semibold text-foreground">
                 وقت الدخول
               </th>
-              <th className="py-3 px-4 text-right font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-right font-semibold text-foreground">
                 سرعة الرد
               </th>
-              <th className="py-3 px-4 text-right font-semibold text-muted-foreground">
+              <th className="py-3 px-4 text-right font-semibold rounded-l-xl text-foreground">
                 الإنجاز
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-border">
             {employees.map((emp) => (
               <tr
                 key={emp.id}
-                className="border-t border-border hover:bg-secondary/30 transition-colors"
+                className="hover:bg-secondary/30 transition-colors"
               >
-                <td className="py-4 px-4 text-center text-muted-foreground">
+                <td className="py-4 px-4 text-center text-foreground">
                   {String(emp.id).padStart(2, "0")}
                 </td>
                 <td className="py-4 px-4 text-right">

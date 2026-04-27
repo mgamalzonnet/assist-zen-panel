@@ -18,9 +18,9 @@ const Team = () => {
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-8">
         <div className="text-right">
           <h1 className="text-2xl font-bold text-foreground flex items-center gap-3 justify-start">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+            {/* <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
               <UserPlus className="w-5 h-5 text-primary" />
-            </div>
+            </div> */}
             إدارة الفريق
           </h1>
           <p className="text-sm text-muted-foreground mt-1">إضافة وإدارة الموظفين وصلاحياتهم.</p>

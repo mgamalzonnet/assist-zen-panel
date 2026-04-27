@@ -13,12 +13,12 @@ const Index = () => {
   return (
     <>
       {/* ── Top bar ── */}
-      <header className="sticky top-0 z-30 bg-card/80 backdrop-blur border-b border-border px-4 lg:px-8 py-4 pr-16 lg:pr-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <header className="sticky top-0 z-30  px-4 lg:px-8 py-4 pr-16 lg:pr-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         {/* Title */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+          {/* <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
             <MessageSquare className="w-4 h-4 text-primary" />
-          </div>
+          </div> */}
           <div>
             <h1 className="text-lg font-bold text-foreground leading-tight">لوحة التحليلات</h1>
             <p className="text-xs text-muted-foreground">نظرة شاملة على أداء الفريق والمحادثات</p>

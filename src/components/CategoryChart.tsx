@@ -2,7 +2,7 @@ import { PieChart } from "lucide-react";
 
 const CategoryChart = () => {
   return (
-    <div className="bg-card rounded-2xl shadow-sm border border-border p-6 flex flex-col items-center justify-center min-h-[280px]">
+    <div className="bg-card rounded-2xl p-6 flex flex-col items-center justify-center min-h-[280px]">
       <div className="text-right w-full mb-6">
         <h2 className="text-lg font-bold text-foreground">توزيع التصنيفات</h2>
         <p className="text-sm text-muted-foreground">توزيع المحادثات حسب النوع</p>

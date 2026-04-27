@@ -17,16 +17,14 @@ const MessageBubble = ({
 }: MessageBubbleProps) => {
   const isAgent = message.from === "agent";
 
-  const avatar = showAvatar ? (
+  const avatar = showAvatar && !isAgent  && (
     <div
       className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow-sm
         ${isAgent ? "bg-primary" : customerAvatarColor}`}
     >
-      {isAgent ? "A" : customerAvatar}
+      {customerAvatar}
     </div>
-  ) : (
-    <div className="w-10 flex-shrink-0" />
-  );
+  ) 
 
   return (
     <div className={`flex items-end gap-2 ${isAgent ? "justify-start" : "justify-end"}`}>

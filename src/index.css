@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,14 +6,13 @@
 
 @layer base {
   html {
-    /* Reserves scrollbar space so layout never jumps */
     scrollbar-gutter: stable;
-    scrollbar-width:none
+    scrollbar-width: none;
   }
 
+  /* ─────────────── LIGHT MODE (default) ─────────────────── */
   :root {
-    /* Brand-neutral corporate palette */
-    --background: 210 18% 97%;
+    --background: 0 0% 97%;
     --foreground: 222 25% 12%;
 
     --card: 0 0% 100%;
@@ -25,14 +24,16 @@
     /* #D18C2D */
     --primary: 34.8 64.6% 49.8%;
     --primary-foreground: 0 0% 100%;
+    --primary-hover: 34.8 64.6% 42%;
+    --primary-active: 34.8 64.6% 33%;
 
-    --secondary: 210 22% 93%;
+    --secondary: 210 20% 93%;
     --secondary-foreground: 222 25% 12%;
 
-    --muted: 210 18% 96%;
+    --muted: 210 20% 96%;
     --muted-foreground: 215 14% 45%;
 
-    --accent: 210 18% 96%;
+    --accent: 210 20% 93%;
     --accent-foreground: 222 25% 12%;
 
     --destructive: 0 84% 60%;
@@ -40,15 +41,16 @@
 
     --border: 215 18% 86%;
     --input: 215 18% 86%;
-    --ring: 34.8 64.6% 49.8%;
+    --ring: 213 90% 55%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Dashboard specific */
-    --sidebar-bg: 222 25% 14%;
-    --sidebar-fg: 210 20% 82%;
-    --sidebar-active: 34.8 64.6% 49.8%;
+    /* Semantic */
+    --success: 160 84% 39%;
+    --warning: 38 92% 50%;
+    --info: 213 70% 50%;
 
+    /* Stat gradients */
     --stat-orange: 20 90% 55%;
     --stat-orange-dark: 15 85% 45%;
     --stat-teal: 165 60% 45%;
@@ -56,18 +58,56 @@
     --stat-blue: 213 70% 50%;
     --stat-blue-dark: 213 65% 40%;
 
-    --success: 145 60% 45%;
-    --warning: 35 90% 55%;
-    --info: 213 70% 50%;
-
+    /* Sidebar stays dark in light mode for contrast */
     --sidebar-background: 222 25% 14%;
-    --sidebar-foreground: 210 20% 82%;
+    --sidebar-foreground: 210 20% 75%;
     --sidebar-primary: 34.8 64.6% 49.8%;
     --sidebar-primary-foreground: 0 0% 100%;
-    /* Warm brand tint for hover states */
     --sidebar-accent: 34.8 64.6% 22%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 220 22% 24%;
+    --sidebar-ring: 34.8 64.6% 49.8%;
+  }
+
+  /* ─────────────── DARK MODE ─────────────────────────────── */
+  .dark {
+    --background: 240 10% 4%;          /* #09090b */
+    --foreground: 0 0% 98%;            /* #fafafa */
+
+    --card: 221 39% 9%;                /* #111827 surface */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 221 39% 9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 34.8 64.6% 49.8%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 34.8 64.6% 42%;
+    --primary-active: 34.8 64.6% 33%;
+
+    --secondary: 215 28% 17%;          /* #1f2937 surfaceElevated */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 218 11% 65%;   /* #9ca3af */
+
+    --accent: 215 28% 17%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 23% 23%;             /* #2d3748 */
+    --input: 217 23% 23%;
+    --ring: 213 90% 55%;
+
+    --sidebar-background: 240 10% 4%;
+    --sidebar-foreground: 218 11% 65%;
+    --sidebar-primary: 34.8 64.6% 49.8%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 34.8 64.6% 22%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 217 23% 23%;
     --sidebar-ring: 34.8 64.6% 49.8%;
   }
 }
@@ -80,16 +120,22 @@
   body {
     @apply bg-background text-foreground font-cairo;
     direction: rtl;
+    font-size: 14px;
   }
 }
 
-/* ── Modern Scrollbar ─────────────────────────────────────── */
-:root {
-  --scrollbar-thumb: hsl(35 65% 50% / 0.35);
-  --scrollbar-thumb-hover: hsl(35 65% 50% / 0.65);
+/* ── Focus ring (SKILL.md: 2px solid) ────────────────────── */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
 
-/* Chrome, Edge, Safari */
+/* ── Scrollbar ────────────────────────────────────────────── */
+:root {
+  --scrollbar-thumb: hsl(var(--primary) / 0.35);
+  --scrollbar-thumb-hover: hsl(var(--primary) / 0.65);
+}
+
 * {
   scrollbar-width: none;
   scrollbar-color: var(--scrollbar-thumb) transparent;
@@ -120,31 +166,14 @@
   background: transparent;
 }
 
-/* Define scrollbar variables using the actual brand primary */
-:root {
-  --scrollbar-thumb: hsl(var(--primary) / 0.35);
-  --scrollbar-thumb-hover: hsl(var(--primary) / 0.65);
-}
-
+/* ── Reduced motion ───────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+  *,
   *::before,
-  *::after,
-  * {
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Brand scrollbar variables */
-:root {
-  --scrollbar-thumb: hsl(var(--primary) / 0.35);
-  --scrollbar-thumb-hover: hsl(var(--primary) / 0.65);
-}
-
-/* Brand scrollbar variables */
-:root {
-  --scrollbar-thumb: hsl(var(--primary) / 0.35);
-  --scrollbar-thumb-hover: hsl(var(--primary) / 0.65);
 }

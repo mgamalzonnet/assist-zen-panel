@@ -10,10 +10,6 @@ const DashboardLayout = () => {
 
   return (
     <div className="relative min-h-screen bg-background overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[#F0F0F0]"
-      />
 
       {/* Mobile hamburger button — hidden when a child page requests it */}
       {showHamburger && (
